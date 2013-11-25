@@ -5,7 +5,9 @@ python:
 virtualenv:
   system_site_packages: true
 before_install:
-  - sudo apt-get install -qq python-numpy
+  - sudo add-apt-repository -y 'deb http://neuro.debian.net/debian data main'
+  - sudo add-apt-repository -y 'deb http://neuro.debian.net/debian precise main'
+  - sudo apt-get install -qq python-pandas python3-pandas
 install:
   - pip install -r requirements.txt --use-mirrors
 script: make test
